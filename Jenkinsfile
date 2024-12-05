@@ -87,15 +87,15 @@ pipeline {
         }
     }
 }
-post {
-    always{
-        echo"This sections runs always"
-        deleteDir() 
-    }
-    success{
-        echo "This section runs when pipeline success"
-    }
-    failure{
-        echo "This section runs when pipline failure"
-    }
-}
+// post {
+//     always{
+//         echo"This sections runs always"
+//         deleteDir() 
+//     }
+//     success{
+//         echo "This section runs when pipeline success"
+//     }
+//     failure{
+//         echo "This section runs when pipline failure"
+//     }
+// }
