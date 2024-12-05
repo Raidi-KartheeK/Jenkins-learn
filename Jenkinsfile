@@ -82,7 +82,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh "echo this is Deploy"
-                error 'pipeline failed'
+                // error 'pipeline failed'
             }
         }
     }
