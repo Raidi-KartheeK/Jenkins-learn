@@ -7,6 +7,9 @@ pipeline {
         disableConcurrentBuilds ()
         // retry (1)
     }
+     environment {
+        DEBUG = 'true'
+    }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins',description: 'who should i say hello to?')
         
@@ -29,12 +32,18 @@ pipeline {
         stage('Test') { 
             steps {
                 sh 'echo this is test'
+                sh 'env'
             }
         }
-        stage('Deploy') { 
+        stage('Deploy') {
+            when {
+                expression { env.GIT_BRANCH != "origin/main" }
+            }
             steps {
-                sh 'echo this is Deploy'
-                // error 'pipeline failed'
+
+                    sh 'echo This is deploy'
+                    //error 'pipeline failed'
+
             }
         }
         stage('print params'){
@@ -47,19 +56,19 @@ pipeline {
 
             }
         }
-          stage('Approval'){
-             input {
-                 message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                 parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                 }
-             }
-            steps {
-                echo "Hello, ${PERSON}, nice to meet you."
-            }
-     }
+    //       stage('Approval'){
+    //          input {
+    //              message "Should we continue?"
+    //             ok "Yes, we should."
+    //             submitter "alice,bob"
+    //              parameters {
+    //                 string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    //              }
+    //          }
+    //         steps {
+    //             echo "Hello, ${PERSON}, nice to meet you."
+    //         }
+    //  }
     }
 
 post {
