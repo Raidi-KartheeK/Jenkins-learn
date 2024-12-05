@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'echo this is Deploy'
-                error 'pipeline failed'
+                // error 'pipeline failed'
             }
         }
         stage('print params'){
@@ -61,5 +61,5 @@ post {
     failure{
         echo 'This section runs when pipline failure'
     }
-}
+    }
 }
