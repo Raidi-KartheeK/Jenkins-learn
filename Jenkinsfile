@@ -8,7 +8,7 @@ pipeline {
         // retry (1)
     }
     parameters {
-        sting(name: 'PERSON', defaultValue: 'Mr Jenkins',description: 'who should i say hello to?')
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins',description: 'who should i say hello to?')
         
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
