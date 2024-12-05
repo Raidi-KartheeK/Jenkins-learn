@@ -70,20 +70,25 @@ pipeline {
     agent {
         label 'AGENT-1'
     }
+    options{
+        timeout(time: 10,unit: 'MINUTES')
+        disableConcurrentBuilds ()
+    }
     stages {
         stage('Build') { 
             steps {
-                sh "echo this is build"
+                sh 'echo this is build'
+                sh 'sleep 10'
             }
         }
         stage('Test') { 
             steps {
-                sh "echo this is test"
+                sh 'echo this is test'
             }
         }
         stage('Deploy') { 
             steps {
-                sh "echo this is Deploy"
+                sh 'echo this is Deploy'
                 //error 'pipeline success'
             }
         }
@@ -91,13 +96,13 @@ pipeline {
 }
 post {
     always{
-        echo"This sections runs always"
+        echo 'This sections runs always'
         deleteDir() 
     }
     success{
-        echo "This section runs when pipeline success"
+        echo 'This section runs when pipeline success'
     }
     failure{
-        echo "This section runs when pipline failure"
+        echo 'This section runs when pipline failure'
     }
 }
