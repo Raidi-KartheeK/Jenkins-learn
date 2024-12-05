@@ -67,7 +67,9 @@
 
 
 pipeline {
-    agent any 
+    agent {
+        label 'AGENT-1'
+    }
     stages {
         stage('Build') { 
             steps {
@@ -82,20 +84,20 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh "echo this is Deploy"
-                // error 'pipeline failed'
+                error 'pipeline success'
             }
         }
     }
 }
-// post {
-//     always{
-//         echo"This sections runs always"
-//         deleteDir() 
-//     }
-//     success{
-//         echo "This section runs when pipeline success"
-//     }
-//     failure{
-//         echo "This section runs when pipline failure"
-//     }
-// }
+post {
+    always{
+        echo"This sections runs always"
+        deleteDir() 
+    }
+    success{
+        echo "This section runs when pipeline success"
+    }
+    failure{
+        echo "This section runs when pipline failure"
+    }
+}
