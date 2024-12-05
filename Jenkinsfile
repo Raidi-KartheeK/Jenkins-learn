@@ -43,7 +43,7 @@ pipeline {
                 echo "Biography: ${params.BIOGRAPHY}"
                 echo "Toggle: ${params.TOGGLE}"
                 echo "Choice: ${params.CHOICE}"
-                echo "Password: ${parms.PASSWORD}"
+                echo "Password: ${params.PASSWORD}"
 
             }
         }
