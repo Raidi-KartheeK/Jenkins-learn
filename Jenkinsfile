@@ -37,7 +37,7 @@ pipeline {
                 error 'pipeline failed'
             }
         }
-        stage('print prams'){
+        stage('print params'){
             steps{
                 echo "Hello ${params.PERSON}"
                 echo "Biography: ${params.BIOGRAPHY}"
