@@ -83,4 +83,3 @@ post {
         echo 'This section runs when pipline failure'
     }
     }
-}
