@@ -89,7 +89,8 @@ post {
 
 
 
-// jenkins
+// jenkins practice
+
 // pipeline {
 //     agent any 
 //     stages {
@@ -111,3 +112,30 @@ post {
 //         }
 //     }
 // } 
+
+// post { 
+//         always { 
+//             echo 'I will always say Hello again!'
+//         }
+//     }
+// }
+
+pipeline {
+    agent any
+    stages{
+        stage()
+            steps {
+                sh ""
+            }
+    }
+    stage (){
+        steps{
+            sh ""
+        }
+    }
+    stage (){
+        steps {
+            sh ""
+        }
+    }
+}
