@@ -115,27 +115,14 @@ post {
 
 // post { 
 //         always { 
-//             echo 'I will always say Hello again!'
+//             echo "I will always say Hello again!""
+//         }
+        //    success { 
+//             echo "This section run when pipeline success"
+//         }
+        //    failure { 
+//             echo "This section run when pipeline failes"
 //         }
 //     }
 // }
 
-pipeline {
-    agent any
-    stages{
-        stage()
-            steps {
-                sh ""
-            }
-    }
-    stage (){
-        steps{
-            sh ""
-        }
-    }
-    stage (){
-        steps {
-            sh ""
-        }
-    }
-}
